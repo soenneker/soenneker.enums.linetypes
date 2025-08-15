@@ -15,4 +15,5 @@ public sealed partial class LineType
     public static readonly LineType VoWiFi = new(nameof(VoWiFi));
     public static readonly LineType VoIP = new(nameof(VoIP));
     public static readonly LineType PrePaidWireless = new(nameof(PrePaidWireless));
+    public static readonly LineType Unknown = new(nameof(Unknown));
 }
