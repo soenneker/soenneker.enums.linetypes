@@ -1,10 +1,12 @@
 ﻿using Intellenum;
+using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Enums.LineTypes;
 
 /// <summary>
 /// An enumerator describing phone line types
 /// </summary>
+[PublicOpenApiObject]
 [Intellenum<string>]
 public sealed partial class LineType
 {
