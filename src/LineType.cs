@@ -1,4 +1,4 @@
-﻿using Intellenum;
+using Soenneker.Gen.EnumValues;
 using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Enums.LineTypes;
@@ -7,7 +7,7 @@ namespace Soenneker.Enums.LineTypes;
 /// An enumerator describing phone line types
 /// </summary>
 [PublicOpenApiObject]
-[Intellenum<string>]
+[EnumValue<string>]
 public sealed partial class LineType
 {
     public static readonly LineType Wireline = new(nameof(Wireline));
