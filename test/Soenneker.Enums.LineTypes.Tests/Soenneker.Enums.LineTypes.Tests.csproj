@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Enums.LineTypes.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Enums.LineTypes\Soenneker.Enums.LineTypes.csproj" />
     </ItemGroup>
 
     <ItemGroup>
