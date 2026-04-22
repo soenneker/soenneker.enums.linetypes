@@ -1,10 +1,9 @@
-﻿using Xunit;
 
 namespace Soenneker.Enums.LineTypes.Tests;
 
 public sealed class LineTypeTests
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
