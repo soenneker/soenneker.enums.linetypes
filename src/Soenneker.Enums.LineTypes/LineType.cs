@@ -4,34 +4,34 @@ using Soenneker.Attributes.PublicOpenApiObject;
 namespace Soenneker.Enums.LineTypes;
 
 /// <summary>
-/// An enumerator describing phone line types
+/// Classifies the access technology or service type associated with a telephone number.
 /// </summary>
 [PublicOpenApiObject]
 [EnumValue<string>]
 public sealed partial class LineType
 {
     /// <summary>
-    /// The wireline.
+    /// Fixed physical wireline or landline service.
     /// </summary>
     public static readonly LineType Wireline = new(nameof(Wireline));
     /// <summary>
-    /// The wireless.
+    /// Mobile wireless or cellular service.
     /// </summary>
     public static readonly LineType Wireless = new(nameof(Wireless));
     /// <summary>
-    /// The vo wi fi.
+    /// Voice-over-Wi-Fi service carried through a wireless internet connection.
     /// </summary>
     public static readonly LineType VoWiFi = new(nameof(VoWiFi));
     /// <summary>
-    /// The vo ip.
+    /// Voice over IP service carried through an internet protocol network.
     /// </summary>
     public static readonly LineType VoIP = new(nameof(VoIP));
     /// <summary>
-    /// The pre paid wireless.
+    /// Prepaid mobile wireless service.
     /// </summary>
     public static readonly LineType PrePaidWireless = new(nameof(PrePaidWireless));
     /// <summary>
-    /// The unknown.
+    /// Line type could not be determined from available data.
     /// </summary>
     public static readonly LineType Unknown = new(nameof(Unknown));
 }
