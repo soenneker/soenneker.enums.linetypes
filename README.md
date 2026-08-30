@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.LineTypes
 
-Classifies the access technology or service type associated with a telephone number.
+A string-backed enum-value type for carrying a telephone line classification returned by a lookup or communications provider.
 
 ## Install
 
@@ -13,16 +13,29 @@ Classifies the access technology or service type associated with a telephone num
 dotnet add package Soenneker.Enums.LineTypes
 ```
 
-## What you get
+## Usage
 
-- `LineType` — Classifies the access technology or service type associated with a telephone number.
+```csharp
+using Soenneker.Enums.LineTypes;
 
-## API at a glance
+LineType lineType = LineType.Wireless;
+string wireValue = lineType.Value; // "Wireless"
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `LineType.Wireline` | Fixed physical wireline or landline service. | Fixed physical wireline or landline service. |
-| `LineType.Wireless` | Mobile wireless or cellular service. | Mobile wireless or cellular service. |
-| `LineType.VoWiFi` | Voice-over-Wi-Fi service carried through a wireless internet connection. | Voice-over-Wi-Fi service carried through a wireless internet connection. |
-| `LineType.VoIP` | Voice over IP service carried through an internet protocol network. | Voice over IP service carried through an internet protocol network. |
-| `LineType.Unknown` | Line type could not be determined from available data. | Line type could not be determined from available data. |
+if (LineType.TryFromValue(providerValue, out LineType? parsed))
+{
+    // parsed is one of the shared static instances
+}
+```
+
+Available values:
+
+- `Wireline` — fixed landline service
+- `Wireless` — mobile or cellular service
+- `VoWiFi` — voice over Wi-Fi
+- `VoIP` — voice over IP
+- `PrePaidWireless` — prepaid mobile service
+- `Unknown` — the source could not determine a type
+
+`System.Text.Json` serializes the type as the shown string value and restores recognized values to the shared static instances. `FromValue` throws for unknown input; use `TryFromValue` when parsing provider data. `FromName` and `TryFromName` are also generated.
+
+This package represents a supplied classification; it does not inspect or validate phone numbers, query carrier data, or establish whether a number is reachable. Provider categories can differ and classifications can become stale after number porting, so retain `Unknown` and avoid treating a line type as a security or identity signal.
